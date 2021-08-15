@@ -66,7 +66,7 @@ const Thumbnail = ({ id, i }: IThumbnailProps) => {
             variants={frameVariants}
             transition={transition}
         >
-          <Link href={`/image/${i}`} passHref>
+          <Link scroll={false} href={`/image/${i}`} passHref>
             <motion.div variants={imageVariants} transition={transition}>
               <Image
                 layout={"responsive"}
