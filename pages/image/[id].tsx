@@ -55,6 +55,8 @@ const SingleImage = ({ id }: ISingleImageProps) => {
   );
 };
 
+// id 파라미터를 SSR 단계에서 가져오도록 함
+// 이로써 페이지가 이동되어도 기존 이미지가 사라지지 않음
 export function getServerSideProps({ params }: GetServerSidePropsContext) {
   return {
     props: {

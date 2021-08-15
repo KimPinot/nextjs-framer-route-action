@@ -52,6 +52,15 @@ const imageVariants = {
   },
 }
 
+const thumbnailsVariants = {
+  exit: {
+    transition: {
+      // delay each direct children element animation (0.1 * order)sec
+      staggerChildren: 0.1,
+    },
+  },
+}
+
 interface IThumbnailProps {
   id: string;
   i: number;
@@ -92,7 +101,7 @@ const Home: NextPage = () => {
             initial="initial"
             animate="enter"
             exit="exit"
-            variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
+            variants={thumbnailsVariants}
         >
           {images.map((id, i) => <Thumbnail key={id} id={id} i={i} />)}
         </motion.div>
