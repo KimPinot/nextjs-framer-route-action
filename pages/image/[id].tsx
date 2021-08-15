@@ -2,10 +2,10 @@ import styles from "../../styles/Home.module.css";
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import { motion } from "framer-motion";
 import { images } from "../../constants/images";
+import { GetServerSidePropsContext } from "next";
 
 const transition = {
   duration: 1,
@@ -26,10 +26,11 @@ const backVariants = {
   enter: { x: 0, opacity: 1, transition: { delay: 1, ...transition } }
 };
 
-const SingleImage = () => {
-  const route = useRouter();
-  const id = String(route.query.id);
-  
+interface ISingleImageProps {
+  id: string;
+}
+
+const SingleImage = ({ id }: ISingleImageProps) => {
   return (
       <motion.div className={styles.single} initial="exit" animate="enter" exit="exit">
         <motion.div variants={imageVariants}>
@@ -53,5 +54,13 @@ const SingleImage = () => {
       </motion.div>
   );
 };
+
+export function getServerSideProps({ params }: GetServerSidePropsContext) {
+  return {
+    props: {
+      ...params,
+    },
+  }
+}
 
 export default SingleImage;
