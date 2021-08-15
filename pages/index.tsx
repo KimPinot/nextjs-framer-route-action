@@ -67,12 +67,15 @@ const Thumbnail = ({ id, i }: IThumbnailProps) => {
             transition={transition}
         >
           <Link href={`/image/${i}`} passHref>
-            <motion.img
-              src={`https://static1.squarespace.com/static/5b475b2c50a54f54f9b4e1dc/t/${id}.jpg?format=1500w`}
-              alt="The Barbican"
-              variants={imageVariants}
-              transition={transition}
-            />
+            <motion.div variants={imageVariants} transition={transition}>
+              <Image
+                layout={"responsive"}
+                width={1185}
+                height={1778}
+                src={`https://static1.squarespace.com/static/5b475b2c50a54f54f9b4e1dc/t/${id}.jpg?format=1500w`}
+                alt="The Barbican"
+              />
+            </motion.div>
           </Link>
         </motion.div>
       </motion.div>

@@ -22,13 +22,12 @@
     cursor: pointer;
 }
 
-.frame {
-    overflow: hidden;
+.thumbnail div {
+    width: 100%;
 }
 
-.thumbnail img {
-    width: 100%;
-    height: 100%;
+.frame {
+    overflow: hidden;
 }
 
 .title {

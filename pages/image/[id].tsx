@@ -1,6 +1,7 @@
 import styles from "../../styles/Home.module.css";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { motion } from "framer-motion";
@@ -31,13 +32,15 @@ const SingleImage = () => {
   
   return (
       <motion.div className={styles.single} initial="exit" animate="enter" exit="exit">
-        <motion.img
-            variants={imageVariants}
-            src={`https://static1.squarespace.com/static/5b475b2c50a54f54f9b4e1dc/t/${
-                images[parseInt(id, 10)]
-            }.jpg?format=1500w`}
-            alt="The Barbican"
-        />
+        <motion.div variants={imageVariants}>
+          <Image
+              layout={"fill"}
+              src={`https://static1.squarespace.com/static/5b475b2c50a54f54f9b4e1dc/t/${
+                  images[parseInt(id, 10)]
+              }.jpg?format=1500w`}
+              alt="The Barbican"
+          />
+        </motion.div>
         <motion.div className={styles.back} variants={backVariants}>
           <Link href="/">
             <a>
