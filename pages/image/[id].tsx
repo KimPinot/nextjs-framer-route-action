@@ -34,7 +34,9 @@ const SingleImage = () => {
       <motion.div className={styles.single} initial="exit" animate="enter" exit="exit">
         <motion.div variants={imageVariants}>
           <Image
-              layout={"fill"}
+              layout={"responsive"}
+              width={1185}
+              height={1778}
               src={`https://static1.squarespace.com/static/5b475b2c50a54f54f9b4e1dc/t/${
                   images[parseInt(id, 10)]
               }.jpg?format=1500w`}
